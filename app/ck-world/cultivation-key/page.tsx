@@ -1,9 +1,10 @@
+import { Navigation } from "@/components/navigation"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
-import Link from "next/link"
 import { ArrowLeft } from "lucide-react"
+import Link from "next/link"
 
 const families = [
   {
@@ -60,6 +61,8 @@ const families = [
 export default function CultivationKeyPage() {
   return (
     <div className="min-h-screen bg-gradient-to-b from-blue-50 to-white">
+      <Navigation />
+
       <main className="container py-12 md:py-20">
         {/* Back Button */}
         <Link href="/ck-world">
@@ -70,30 +73,18 @@ export default function CultivationKeyPage() {
         </Link>
 
         {/* Page Header */}
-        <div className="mb-12 flex flex-col lg:flex-row gap-8 items-start">
-          {/* Left column: Title and description */}
-          <div className="flex-1 space-y-4">
-            <h1 className="text-4xl md:text-5xl font-bold text-blue-700">Cultivation Key™</h1>
-            <p className="text-xl text-blue-600 font-medium">Unlock the Full Potential of Your Soil and Crops</p>
-            <p className="text-muted-foreground leading-relaxed text-pretty">
-              Welcome to Cultivation Key™ at CK® – Complete Krop, we proudly introduce Cultivation Key™, a specialized
-              product line crafted to unlock the full potential of your soil and crops. Designed with precision science
-              and field-proven performance, each solution in the Cultivation Key™ series addresses critical agronomic
-              challenges - ranging from salinity stress and nutrient deficiency to soil structure recovery and root zone
-              activation. Whether you're a grower in high-demand commercial agriculture or sustainable horticulture,
-              Cultivation Key™ offers the strategic tools to cultivate healthier plants, optimize resource efficiency,
-              and secure higher yields - all while safeguarding the vitality of your soil for seasons to come.
-            </p>
-          </div>
-
-          {/* Right column: Larger image */}
-          <div className="flex-shrink-0 lg:w-[500px] xl:w-[600px]">
-            <img
-              src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Cultivation%20Key%E2%84%A2-sJp1pEn4VFjeZvYTRzSjOGV9AGmTR8.jpg"
-              alt="Plant sprouting from Earth globe in soil representing cultivation and growth"
-              className="rounded-lg shadow-2xl w-full h-auto object-cover"
-            />
-          </div>
+        <div className="mb-12 space-y-4">
+          <h1 className="text-4xl md:text-5xl font-bold text-blue-700">Cultivation Key™</h1>
+          <p className="text-xl text-blue-600 font-medium">Unlock the Full Potential of Your Soil and Crops</p>
+          <p className="text-muted-foreground leading-relaxed max-w-4xl text-pretty">
+            Welcome to Cultivation Key™ at CK® – Complete Krop, we proudly introduce Cultivation Key™, a specialized
+            product line crafted to unlock the full potential of your soil and crops. Designed with precision science
+            and field-proven performance, each solution in the Cultivation Key™ series addresses critical agronomic
+            challenges - ranging from salinity stress and nutrient deficiency to soil structure recovery and root zone
+            activation. Whether you're a grower in high-demand commercial agriculture or sustainable horticulture,
+            Cultivation Key™ offers the strategic tools to cultivate healthier plants, optimize resource efficiency, and
+            secure higher yields - all while safeguarding the vitality of your soil for seasons to come.
+          </p>
         </div>
 
         {/* Product Families Tabs */}

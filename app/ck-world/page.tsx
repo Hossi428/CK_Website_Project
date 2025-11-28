@@ -1,9 +1,9 @@
+import { Navigation } from "@/components/navigation"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Separator } from "@/components/ui/separator"
 import { Button } from "@/components/ui/button"
 import Link from "next/link"
 import { ArrowRight } from "lucide-react"
-import Image from "next/image"
 
 const productLines = [
   {
@@ -14,7 +14,6 @@ const productLines = [
       "A comprehensive range of premium water-soluble NPKs, dual and triple nutrient formulations, and primary and secondary macronutrients in powder, crystal, and liquid forms. Engineered to deliver balanced, efficient, and tailored nutrition for optimal crop growth.",
     color: "emerald",
     familyCount: 7,
-    icon: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Crystal_Krop_-Icon-removebg-preview-5D3zEQXivTyUSq9vWYOGpA4jZaMHUT.png",
   },
   {
     id: "cultivation-key",
@@ -24,7 +23,6 @@ const productLines = [
       "Specialized solutions addressing critical agronomic challenges - from salinity stress and nutrient deficiency to soil structure recovery and root zone activation. Strategic tools to cultivate healthier plants and optimize resource efficiency.",
     color: "blue",
     familyCount: 7,
-    icon: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Cultivation_Key__-_Icon-removebg-preview-w5HHMKgvDSRO7OVAM7bvyIumhYoywF.png",
   },
   {
     id: "crop-karma",
@@ -34,7 +32,6 @@ const productLines = [
       "Soil-applied products that directly improve soil structure, biological activity, and rooting conditions. Features soil conditioners, microbial activators, and biologically active compounds designed to enrich the soil environment.",
     color: "amber",
     familyCount: 2,
-    icon: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Crop_Karma__-_Icon-removebg-preview-x5xTkensVvtp4owGUXfvgGF9ZG0kzU.png",
   },
   {
     id: "crop-keeper",
@@ -44,7 +41,6 @@ const productLines = [
       "Specially designed to support plant resilience and protect your harvest from biotic and abiotic stresses. Enhances plant defense mechanisms, promotes stress tolerance, and helps safeguard yield quality.",
     color: "red",
     familyCount: 3,
-    icon: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Crop_Keeper__-_Icon-removebg-preview-vPs3H1LyA4U16qpIhyjnS79GYKoSMM.png",
   },
   {
     id: "crop-kit",
@@ -55,7 +51,6 @@ const productLines = [
     color: "violet",
     familyCount: 0,
     productCount: 27,
-    icon: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Crop_Kit__-_Icon-removebg-preview-DQRoErhATMboLpgNlhI8t16rqeNJdA.png",
   },
 ]
 
@@ -84,25 +79,11 @@ const buttonColors = {
   violet: "bg-violet-600 hover:bg-violet-700",
 }
 
-const iconFilterClasses = {
-  emerald: "",
-  blue: "",
-  amber: "",
-  red: "",
-  violet: "",
-}
-
-const iconBgColors = {
-  emerald: "bg-emerald-50",
-  blue: "bg-blue-50",
-  amber: "bg-amber-50",
-  red: "bg-red-50",
-  violet: "bg-violet-50",
-}
-
 export default function CKWorldPage() {
   return (
     <div className="min-h-screen bg-gradient-to-b from-gray-50 to-white">
+      <Navigation />
+
       <main className="container py-12 md:py-20">
         {/* Page Header */}
         <div className="text-center mb-16 space-y-4">
@@ -118,105 +99,40 @@ export default function CKWorldPage() {
         <Separator className="mb-16" />
 
         {/* Product Lines Grid */}
-        <div className="max-w-7xl mx-auto">
-          <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3 lg:gap-8 justify-items-center">
-            {/* First 3 items - Top row */}
-            {productLines.slice(0, 3).map((line) => (
-              <Card
-                key={line.id}
-                className={`transition-all duration-300 ${colorClasses[line.color as keyof typeof colorClasses]} border-2 group w-full max-w-md flex flex-col`}
-              >
-                <CardHeader>
-                  {line.icon && (
-                    <div className="flex justify-center mb-4">
-                      <Image
-                        src={line.icon || "/placeholder.svg"}
-                        alt={`${line.name} icon`}
-                        width={80}
-                        height={80}
-                        className="object-contain"
-                      />
-                    </div>
-                  )}
-                  <CardTitle className={`text-2xl ${colorAccents[line.color as keyof typeof colorAccents]}`}>
-                    {line.name}
-                  </CardTitle>
-                  <CardDescription className="text-base font-medium">{line.tagline}</CardDescription>
-                </CardHeader>
-                <CardContent className="space-y-6 flex-1 flex flex-col justify-between">
-                  <div className="space-y-6">
-                    <p className="text-muted-foreground leading-relaxed text-pretty h-[192px]">{line.description}</p>
+        <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+          {productLines.map((line) => (
+            <Card
+              key={line.id}
+              className={`transition-all duration-300 ${colorClasses[line.color as keyof typeof colorClasses]} border-2 group`}
+            >
+              <CardHeader>
+                <CardTitle className={`text-2xl ${colorAccents[line.color as keyof typeof colorAccents]}`}>
+                  {line.name}
+                </CardTitle>
+                <CardDescription className="text-base font-medium">{line.tagline}</CardDescription>
+              </CardHeader>
+              <CardContent className="space-y-6">
+                <p className="text-muted-foreground leading-relaxed text-pretty min-h-[120px]">{line.description}</p>
 
-                    <div className="flex items-center justify-between text-sm text-muted-foreground h-[24px]">
-                      <span>
-                        {line.familyCount > 0
-                          ? `${line.familyCount} Product ${line.familyCount === 1 ? "Family" : "Families"}`
-                          : `${line.productCount} Products`}
-                      </span>
-                    </div>
-                  </div>
+                <div className="flex items-center justify-between text-sm text-muted-foreground">
+                  <span>
+                    {line.familyCount > 0
+                      ? `${line.familyCount} Product ${line.familyCount === 1 ? "Family" : "Families"}`
+                      : `${line.productCount} Products`}
+                  </span>
+                </div>
 
-                  <Link href={`/ck-world/${line.id}`} className="block">
-                    <Button
-                      className={`w-full ${buttonColors[line.color as keyof typeof buttonColors]} text-white group-hover:gap-3 transition-all`}
-                    >
-                      Explore {line.name}
-                      <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
-                    </Button>
-                  </Link>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
-
-          <div className="flex justify-center gap-8 mt-8 flex-wrap">
-            {productLines.slice(3, 5).map((line) => (
-              <Card
-                key={line.id}
-                className={`transition-all duration-300 ${colorClasses[line.color as keyof typeof colorClasses]} border-2 group w-full max-w-md flex flex-col`}
-              >
-                <CardHeader>
-                  {line.icon && (
-                    <div className="flex justify-center mb-4">
-                      <Image
-                        src={line.icon || "/placeholder.svg"}
-                        alt={`${line.name} icon`}
-                        width={80}
-                        height={80}
-                        className="object-contain"
-                      />
-                    </div>
-                  )}
-                  <CardTitle className={`text-2xl ${colorAccents[line.color as keyof typeof colorAccents]}`}>
-                    {line.name}
-                  </CardTitle>
-                  <CardDescription className="text-base font-medium">{line.tagline}</CardDescription>
-                </CardHeader>
-                <CardContent className="space-y-6 flex-1 flex flex-col justify-between">
-                  <div className="space-y-6">
-                    <p className="text-muted-foreground leading-relaxed text-pretty h-[192px]">{line.description}</p>
-
-                    <div className="flex items-center justify-between text-sm text-muted-foreground h-[24px]">
-                      <span>
-                        {line.familyCount > 0
-                          ? `${line.familyCount} Product ${line.familyCount === 1 ? "Family" : "Families"}`
-                          : `${line.productCount} Products`}
-                      </span>
-                    </div>
-                  </div>
-
-                  <Link href={`/ck-world/${line.id}`} className="block">
-                    <Button
-                      className={`w-full ${buttonColors[line.color as keyof typeof buttonColors]} text-white group-hover:gap-3 transition-all`}
-                    >
-                      Explore {line.name}
-                      <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
-                    </Button>
-                  </Link>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
+                <Link href={`/ck-world/${line.id}`} className="block">
+                  <Button
+                    className={`w-full ${buttonColors[line.color as keyof typeof buttonColors]} text-white group-hover:gap-3 transition-all`}
+                  >
+                    Explore {line.name}
+                    <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+                  </Button>
+                </Link>
+              </CardContent>
+            </Card>
+          ))}
         </div>
 
         {/* Bottom CTA */}

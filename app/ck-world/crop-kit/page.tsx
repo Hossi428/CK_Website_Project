@@ -1,3 +1,4 @@
+import { Navigation } from "@/components/navigation"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
@@ -37,6 +38,8 @@ const products = [
 export default function CropKitPage() {
   return (
     <div className="min-h-screen bg-gradient-to-b from-violet-50 to-white">
+      <Navigation />
+
       <main className="container py-12 md:py-20">
         {/* Back Button */}
         <Link href="/ck-world">

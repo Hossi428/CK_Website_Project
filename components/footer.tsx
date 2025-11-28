@@ -55,8 +55,8 @@ export function Footer() {
       </div>
 
       {/* Copyright Strip */}
-      <div className="bg-black py-3">
-        <div className="container mx-auto px-4 text-center text-sm">Copyright © 2025 CK. All rights reserved.</div>
+      <div className="bg-emerald-600 py-3">
+        <div className="container mx-auto px-4 text-center text-sm">Copyright © 2023 CK. All rights reserved.</div>
       </div>
     </footer>
   )

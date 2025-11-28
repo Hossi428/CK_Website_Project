@@ -1,3 +1,4 @@
+import { Navigation } from "@/components/navigation"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { Badge } from "@/components/ui/badge"
@@ -103,6 +104,8 @@ const families = [
 export default function CrystalKropPage() {
   return (
     <div className="min-h-screen bg-gradient-to-b from-emerald-50 to-white">
+      <Navigation />
+
       <main className="container py-12 md:py-20">
         {/* Back Button */}
         <Link href="/ck-world">
@@ -113,32 +116,20 @@ export default function CrystalKropPage() {
         </Link>
 
         {/* Page Header */}
-        <div className="mb-12 flex flex-col lg:flex-row gap-8 items-start">
-          {/* Left column: Title and description */}
-          <div className="flex-1 space-y-4">
-            <h1 className="text-4xl md:text-5xl font-bold text-emerald-700">Crystal Krop™</h1>
-            <p className="text-xl text-emerald-600 font-medium">Precision Meets Performance in Plant Nutrition</p>
-            <p className="text-muted-foreground leading-relaxed text-pretty">
-              Welcome to Crystal Krop™ - where precision meets performance in plant nutrition. At CK®, we recognize that
-              every crop, soil type, and growing environment is unique. That's why the Crystal Krop™ portfolio offers a
-              comprehensive range of premium water-soluble NPKs, dual and triple nutrient formulations, and primary and
-              secondary macronutrients in powder, crystal, and liquid forms. Our fertilizers are engineered to deliver
-              balanced, efficient, and tailored nutrition, ensuring optimal uptake, enhanced crop growth, and superior
-              yield quality–whether for fruits, vegetables, or field crops. Driven by sustainable agriculture and
-              innovation, Crystal Krop™ products leverage advanced nutrient technologies that maximize efficiency while
-              minimizing environmental impact. Partner with CK® and unlock the full potential of your crops with
-              fertilizers designed to empower today's growth and meet the challenges of tomorrow.
-            </p>
-          </div>
-
-          {/* Right column: Larger image */}
-          <div className="flex-shrink-0 lg:w-[500px] xl:w-[600px]">
-            <img
-              src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Crystal%20Krop%E2%84%A2-7CQrpvmFcbUxnYGYh298G4oqYkC65F.jpg"
-              alt="Earth globe covered with green vegetation representing global sustainability and plant nutrition"
-              className="rounded-lg shadow-2xl w-full h-auto object-cover"
-            />
-          </div>
+        <div className="mb-12 space-y-4">
+          <h1 className="text-4xl md:text-5xl font-bold text-emerald-700">Crystal Krop™</h1>
+          <p className="text-xl text-emerald-600 font-medium">Precision Meets Performance in Plant Nutrition</p>
+          <p className="text-muted-foreground leading-relaxed max-w-4xl text-pretty">
+            Welcome to Crystal Krop™ - where precision meets performance in plant nutrition. At CK®, we recognize that
+            every crop, soil type, and growing environment is unique. That's why the Crystal Krop™ portfolio offers a
+            comprehensive range of premium water-soluble NPKs, dual and triple nutrient formulations, and primary and
+            secondary macronutrients in powder, crystal, and liquid forms. Our fertilizers are engineered to deliver
+            balanced, efficient, and tailored nutrition, ensuring optimal uptake, enhanced crop growth, and superior
+            yield quality–whether for fruits, vegetables, or field crops. Driven by sustainable agriculture and
+            innovation, Crystal Krop™ products leverage advanced nutrient technologies that maximize efficiency while
+            minimizing environmental impact. Partner with CK® and unlock the full potential of your crops with
+            fertilizers designed to empower today's growth and meet the challenges of tomorrow.
+          </p>
         </div>
 
         {/* Product Families Tabs */}

@@ -1,10 +1,10 @@
+import { Navigation } from "@/components/navigation"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
 import { ArrowLeft } from "lucide-react"
 import Link from "next/link"
-import Image from "next/image"
 
 const families = [
   {
@@ -35,6 +35,8 @@ const families = [
 export default function CropKarmaPage() {
   return (
     <div className="min-h-screen bg-gradient-to-b from-amber-50 to-white">
+      <Navigation />
+
       <main className="container py-12 md:py-20">
         {/* Back Button */}
         <Link href="/ck-world">
@@ -45,33 +47,21 @@ export default function CropKarmaPage() {
         </Link>
 
         {/* Page Header */}
-        <div className="mb-12 flex flex-col lg:flex-row gap-8 items-start">
-          <div className="flex-1 space-y-4">
-            <h1 className="text-4xl md:text-5xl font-bold text-amber-700">Crop Karma™</h1>
-            <p className="text-xl text-amber-600 font-medium">Rebuilding Soil, Rooting the Future</p>
-            <p className="text-muted-foreground leading-relaxed text-pretty">
-              Welcome to Crop Karma™ - Rebuilding Soil, Rooting the Future. The Crop Karma™ line by CK® is dedicated to
-              one essential principle: healthy roots grow in living soil. This exclusive collection focuses on
-              soil-applied products that directly improve soil structure, biological activity, and rooting conditions -
-              laying the foundation for long-term agricultural success. The Crop Karma™ product line features soil
-              conditioners, microbial activators, and biologically active compounds designed to enrich the soil
-              environment, stimulate beneficial microbial flora, and enhance nutrient bioavailability. From compacted
-              fields to nutrient-depleted soils, Crop Karma™ supports the restoration and biological balance of the
-              rhizosphere, enabling stronger root systems and more resilient crops. Whether in open fields, orchards, or
-              greenhouse systems, Crop Karma™ is the smart first step toward sustainable farming. With every
-              application, you are not only feeding the soil - you are activating its full potential for years to come.
-            </p>
-          </div>
-          <div className="lg:w-[500px] xl:w-[600px] flex-shrink-0">
-            <Image
-              src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Crop%20Karma%E2%84%A2-pCLB9n1oDstZyfMzKOjdAuIJK8j3Yx.jpg"
-              alt="Crop Karma - Earth in Soil"
-              width={600}
-              height={800}
-              className="w-full h-auto rounded-lg shadow-xl"
-              priority
-            />
-          </div>
+        <div className="mb-12 space-y-4">
+          <h1 className="text-4xl md:text-5xl font-bold text-amber-700">Crop Karma™</h1>
+          <p className="text-xl text-amber-600 font-medium">Rebuilding Soil, Rooting the Future</p>
+          <p className="text-muted-foreground leading-relaxed max-w-4xl text-pretty">
+            Welcome to Crop Karma™ - Rebuilding Soil, Rooting the Future. The Crop Karma™ line by CK® is dedicated to
+            one essential principle: healthy roots grow in living soil. This exclusive collection focuses on
+            soil-applied products that directly improve soil structure, biological activity, and rooting conditions -
+            laying the foundation for long-term agricultural success. The Crop Karma™ product line features soil
+            conditioners, microbial activators, and biologically active compounds designed to enrich the soil
+            environment, stimulate beneficial microbial flora, and enhance nutrient bioavailability. From compacted
+            fields to nutrient-depleted soils, Crop Karma™ supports the restoration and biological balance of the
+            rhizosphere, enabling stronger root systems and more resilient crops. Whether in open fields, orchards, or
+            greenhouse systems, Crop Karma™ is the smart first step toward sustainable farming. With every application,
+            you are not only feeding the soil - you are activating its full potential for years to come.
+          </p>
         </div>
 
         {/* Product Families Tabs */}

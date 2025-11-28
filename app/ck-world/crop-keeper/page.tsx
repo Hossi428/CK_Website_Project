@@ -1,9 +1,10 @@
+import { Navigation } from "@/components/navigation"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
-import Link from "next/link"
 import { ArrowLeft } from "lucide-react"
+import Link from "next/link"
 
 const families = [
   {
@@ -42,6 +43,8 @@ const families = [
 export default function CropKeeperPage() {
   return (
     <div className="min-h-screen bg-gradient-to-b from-red-50 to-white">
+      <Navigation />
+
       <main className="container py-12 md:py-20">
         {/* Back Button */}
         <Link href="/ck-world">

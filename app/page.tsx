@@ -12,20 +12,12 @@ export default function HomePage() {
         <section className="relative h-[700px] lg:h-[800px] flex items-center overflow-hidden">
           <HeroCarousel />
 
-          <div className="container relative z-10 text-white px-8 lg:px-16">
-            <div className="max-w-4xl space-y-8">
-              <p className="text-base md:text-lg font-medium uppercase tracking-wider text-emerald-400">
-                CK® Your partner in smarter & tailored crop solutions
-              </p>
-              <h1 className="text-6xl md:text-7xl lg:text-8xl font-light leading-tight text-balance">
-                Change for Healthy Farming
-              </h1>
-              <p className="text-xl md:text-2xl leading-relaxed text-gray-100 max-w-3xl">
-                At CK® - Complete Krop, we deliver precision nutrition and sustainable solutions that empower farmers to
-                achieve optimal yields while protecting the environment.
-              </p>
+          <div className="container relative z-10 text-white px-8 lg:px-16 pointer-events-none">
+            <div className="max-w-4xl">
+              {/* Spacer to push buttons below the carousel text */}
+              <div className="h-[340px] md:h-[320px] lg:h-[350px]" />
 
-              <div className="flex flex-col sm:flex-row gap-4 mt-8">
+              <div className="flex flex-col sm:flex-row gap-4 pointer-events-auto">
                 <Button asChild size="lg" className="bg-orange-500 hover:bg-orange-600 text-white text-base px-8 py-6">
                   <Link href="/ck-world" className="flex items-center gap-2">
                     Explore CK World <ArrowRight className="h-5 w-5" />
@@ -35,7 +27,7 @@ export default function HomePage() {
                   asChild
                   size="lg"
                   variant="outline"
-                  className="bg-white/10 hover:bg-white/20 text-white border-white text-base px-8 py-6"
+                  className="bg-transparent hover:bg-white/20 text-white border-white text-base px-8 py-6"
                 >
                   <Link href="/lets-connect" className="flex items-center gap-2">
                     Contact Us <ArrowRight className="h-5 w-5" />
